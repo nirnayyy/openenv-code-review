@@ -1,3 +1,13 @@
+---
+title: Code Review OpenEnv
+emoji: 🔍
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 8000
+pinned: false
+---
+
 # 🔍 Code Review OpenEnv
 
 > An RL environment where AI agents perform automated code reviews —
