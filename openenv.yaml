@@ -1,0 +1,86 @@
+name: code-review-openenv
+version: "1.0.0"
+description: >
+  An RL environment where AI agents perform code reviews on Python functions.
+  Agents must identify bugs, suggest fixes, rate severity, and explain issues
+  across three tasks of increasing difficulty: syntax errors, logic bugs,
+  and critical security vulnerabilities (SQL injection).
+
+author: solo-participant
+license: MIT
+tags:
+  - openenv
+  - code-review
+  - security
+  - software-engineering
+  - reinforcement-learning
+
+environment:
+  type: text
+  language: python
+  framework: fastapi
+
+api:
+  reset:
+    method: POST
+    path: /reset
+    description: Start a new episode. Returns the first code snippet to review.
+  step:
+    method: POST
+    path: /step
+    description: Submit a code review action. Returns reward and next observation.
+  state:
+    method: GET
+    path: /state
+    description: Returns the full current state of the environment.
+
+tasks:
+  - id: task1_easy
+    difficulty: easy
+    description: >
+      Identify a NameError caused by a typo in a variable name inside
+      a simple average-calculation function.
+    reward_range: [0.0, 1.0]
+
+  - id: task2_medium
+    difficulty: medium
+    description: >
+      Identify two bugs in a second-largest-number function:
+      wrong index selection and in-place list mutation side effect.
+    reward_range: [0.0, 1.0]
+
+  - id: task3_hard
+    difficulty: hard
+    description: >
+      Detect a critical SQL injection vulnerability in a database
+      authentication module, demonstrate an exploit, and provide
+      a parameterized query fix.
+    reward_range: [0.0, 1.0]
+
+observation_space:
+  task_id: string
+  task_description: string
+  code_snippet: string
+  language: string
+  step: integer
+  max_steps: integer
+  context: string
+  done: boolean
+
+action_space:
+  identified_issues: list[string]
+  suggested_fixes: list[string]
+  severity: "low | medium | high | critical"
+  explanation: string
+  line_numbers: list[integer]
+
+reward_space:
+  score: float  # 0.0 to 1.0
+  issue_detected: boolean
+  fix_quality: float  # 0.0 to 1.0
+  severity_correct: boolean
+  feedback: string
+
+docker:
+  port: 8000
+  health_check: /health
