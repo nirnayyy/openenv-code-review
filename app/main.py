@@ -1,11 +1,15 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Request
 from app.models import Action, Observation, StepResult, EnvironmentState
 from app.environment import CodeReviewEnvironment
 
+APP_NAME = "code-review-openenv"
+APP_DESCRIPTION = (
+    "An RL environment where agents review code for bugs and security vulnerabilities."
+)
+
 app = FastAPI(
     title="OpenEnv — Code Review Environment",
-    description="An RL environment where agents review code for bugs and security vulnerabilities.",
+    description=APP_DESCRIPTION,
     version="1.0.0",
 )
 
@@ -48,7 +52,54 @@ def state():
 # ─────────────────────────────────────────────
 @app.get("/health")
 def health():
-    return {"status": "ok", "environment": "code-review-openenv"}
+    return {"status": "healthy", "environment": APP_NAME}
+
+
+# ─────────────────────────────────────────────
+# GET /metadata  — OpenEnv metadata
+# ─────────────────────────────────────────────
+@app.get("/metadata")
+def metadata():
+    return {
+        "name": APP_NAME,
+        "description": APP_DESCRIPTION,
+        "version": app.version,
+        "mode": "simulation",
+    }
+
+
+# ─────────────────────────────────────────────
+# GET /schema  — JSON schema for core payloads
+# ─────────────────────────────────────────────
+@app.get("/schema")
+def schema():
+    return {
+        "action": Action.model_json_schema(),
+        "observation": Observation.model_json_schema(),
+        "state": EnvironmentState.model_json_schema(),
+        "step_result": StepResult.model_json_schema(),
+    }
+
+
+# ─────────────────────────────────────────────
+# POST /mcp  — lightweight JSON-RPC compatible endpoint
+# ─────────────────────────────────────────────
+@app.post("/mcp")
+async def mcp(request: Request):
+    try:
+        payload = await request.json()
+    except Exception:
+        payload = {}
+
+    return {
+        "jsonrpc": "2.0",
+        "id": payload.get("id"),
+        "result": {
+            "name": APP_NAME,
+            "status": "healthy",
+            "mode": "simulation",
+        },
+    }
 
 
 # ─────────────────────────────────────────────
@@ -57,4 +108,5 @@ def health():
 @app.get("/tasks")
 def list_tasks():
     from app.tasks import TASK_ORDER
+
     return {"tasks": TASK_ORDER, "count": len(TASK_ORDER)}
