@@ -180,12 +180,10 @@ Evaluated using `meta-llama/Llama-3.3-70B-Instruct` via HuggingFace router:
 
 | Task | Score | Notes |
 |---|---|---|
-| task1_easy | 1.0000 | Correctly identified NameError + fix |
-| task2_medium | 0.8750 | Found both bugs, partial fix credit |
-| task3_hard | 0.7000 | Named SQL injection, showed exploit |
-| **Average** | **0.8583** | |
-
-*(Scores will update after real baseline run on Day 6)*
+| task1_easy | 0.8000 | Found bug + fix, severity rated slightly low |
+| task2_medium | 1.0000 | Perfect — both bugs identified with correct fixes |
+| task3_hard | 1.0000 | Perfect — named SQL injection, showed exploit, parameterized fix |
+| **Average** | **0.9333** | |
 
 ---
 
