@@ -56,6 +56,25 @@ def health():
 
 
 # ─────────────────────────────────────────────
+# GET /  — root info endpoint
+# ─────────────────────────────────────────────
+@app.get("/")
+def root():
+    return {
+        "name": "OpenEnv — Code Review Environment",
+        "version": "1.0.0",
+        "status": "running",
+        "endpoints": {
+            "reset": "POST /reset",
+            "step": "POST /step",
+            "state": "GET /state",
+            "tasks": "GET /tasks",
+            "health": "GET /health"
+        },
+    }
+
+
+# ─────────────────────────────────────────────
 # GET /metadata  — OpenEnv metadata
 # ─────────────────────────────────────────────
 @app.get("/metadata")
