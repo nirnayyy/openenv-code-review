@@ -42,7 +42,7 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-[#121519] dark:bg-[#181C22] border border-[#262C36] group-hover/pin:border-[#FF5500]/50 transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-xl bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] group-hover/pin:border-[#FF5500] dark:group-hover/pin:border-[#FF5500]/50 transition duration-700 overflow-hidden"
         >
           <div className={cn("relative z-50", className)}>{children}</div>
         </div>
@@ -58,7 +58,7 @@ export const PinPerspective = ({ title, href }) => {
       <div className="w-full h-full -mt-7 flex-none inset-0">
         <div className="absolute top-0 inset-x-0 flex justify-center">
           <div
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-[#181C22] py-0.5 px-4 ring-1 ring-white/10"
+            className="relative flex space-x-2 items-center z-10 rounded-full bg-[#111111] dark:bg-[#181C22] py-0.5 px-4 ring-1 ring-black/10 dark:ring-white/10 shadow-md"
           >
             <span className="relative z-20 text-white text-xs font-bold inline-block py-0.5 font-mono">
               {title || "EXPLORE AUDIT"}
