@@ -10,6 +10,12 @@ __pycache__/
 venv/
 env/
 
+# Node dependencies & builds
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+
 # Environment files
 .env
 .env.*
@@ -23,6 +29,10 @@ htmlcov/
 
 # Local outputs
 baseline_scores.json
+
+# Media
+*.mp4
+*.mov
 
 # OS / editor
 .DS_Store

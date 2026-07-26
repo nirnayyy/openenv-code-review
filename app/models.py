@@ -68,3 +68,61 @@ class EnvironmentState(BaseModel):
     total_reward: float
     reward_history: List[float] = Field(default_factory=list)
     current_observation: Observation
+
+
+# ─────────────────────────────────────────────
+# RUN AGENT REQUEST  — params to trigger live agent episode
+# ─────────────────────────────────────────────
+class RunAgentRequest(BaseModel):
+    api_base_url: Optional[str] = Field(
+        default="https://router.huggingface.co/v1",
+        description="LLM provider API base URL",
+    )
+    api_key: Optional[str] = Field(None, description="API Key for the provider")
+    model_name: str = Field(
+        default="meta-llama/Llama-3.3-70B-Instruct",
+        description="Model name to evaluate",
+    )
+    temperature: Optional[float] = Field(default=0.1, description="Sampling temperature")
+    max_tokens: Optional[int] = Field(default=700, description="Max response tokens")
+    system_prompt: Optional[str] = Field(None, description="Custom system prompt override")
+
+
+
+# ─────────────────────────────────────────────
+# CUSTOM EVALUATION  — review user code snippets
+# ─────────────────────────────────────────────
+class CustomEvaluationRequest(BaseModel):
+    code_snippet: str = Field(..., description="Python code to review")
+    task_description: Optional[str] = Field(
+        default="Identify bugs, security vulnerabilities, and code quality issues.",
+        description="Optional description of code purpose",
+    )
+    api_base_url: Optional[str] = Field(
+        default="https://router.huggingface.co/v1",
+        description="LLM provider API base URL",
+    )
+    api_key: Optional[str] = Field(None, description="API Key for LLM provider")
+    model_name: Optional[str] = Field(
+        default="meta-llama/Llama-3.3-70B-Instruct",
+        description="Model name for review",
+    )
+
+
+class CustomEvaluationResponse(BaseModel):
+    action: Action
+    reward: Reward
+    code_snippet: str
+
+
+# ─────────────────────────────────────────────
+# BENCHMARK HISTORY  — record past episode runs
+# ─────────────────────────────────────────────
+class BenchmarkHistoryRecord(BaseModel):
+    id: str
+    timestamp: str
+    model: str
+    average_score: float
+    task_scores: Dict[str, float]
+    details: List[Dict[str, Any]]
+

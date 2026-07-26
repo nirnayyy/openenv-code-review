@@ -1,0 +1,21 @@
+{
+  "name": "openenv-code-review",
+  "version": "1.0.0",
+  "description": "---\r title: Code Review OpenEnv\r emoji: 🔍\r colorFrom: blue\r colorTo: green\r sdk: docker\r app_port: 8000\r pinned: false\r ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirnayyy/openenv-code-review.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nirnayyy/openenv-code-review/issues"
+  },
+  "homepage": "https://github.com/nirnayyy/openenv-code-review#readme"
+}

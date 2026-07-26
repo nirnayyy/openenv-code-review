@@ -1,19 +1,25 @@
-FROM python:3.11-slim
+# Stage 1: Build Frontend UI
+FROM node:20-alpine AS frontend-builder
+WORKDIR /app/frontend
 
-# Set working directory
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ ./
+RUN npm run build
+
+# Stage 2: Final Production Runtime
+FROM python:3.11-slim
 WORKDIR /app
 
-# Copy requirements first (Docker cache optimization)
+# Install Python requirements
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy entire project
+# Copy backend and built frontend assets
 COPY . .
+COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
-# Expose port
 EXPOSE 8000
 
-# Start the FastAPI server
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,7 +1,17 @@
-# 🔍 Code Review OpenEnv
+---
+title: Code Review OpenEnv
+emoji: 🔍
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 8000
+pinned: false
+---
 
-> **Automated Code Review Reinforcement Learning Environment**  
-> An OpenAI Gym-style environment built on [OpenEnv](https://github.com/meta-pytorch/OpenEnv) for training, evaluating, and benchmarking AI agents on software engineering code reviews.
+# 🔍 Code Review OpenEnv & Web Dashboard
+
+> **Meta PyTorch OpenEnv Specification Compatible**  
+> An RL environment & production Web Application where AI agents perform automated code reviews — identifying bugs, suggesting fixes, rating severity, and detecting security vulnerabilities across tasks of increasing difficulty.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Task-Reinforcement%20Learning-10b981?style=flat-square" alt="RL Task">
@@ -12,23 +22,28 @@
 
 ---
 
-## 🌍 Why This Environment Exists
+## 🌟 Interactive Features & UI/UX
 
-Code review is a high-cognitive, time-intensive process. While large language models (LLMs) are frequently deployed for code editing and generation, there has been a lack of standard, reproducible reinforcement learning environments to train agents specifically for **precision debugging, logic-mutation detection, and secure coding practices**.
+This project features a **full-stack production Web UI** served directly on port `8000`:
 
-This project provides a graded benchmark consisting of three tasks of increasing complexity, measuring an agent's capability to detect flaws, suggest correct replacements, rate severity, and generate exploits.
+1. 🎮 **Live Agent Playground**: Select model (Llama 3.3 70B, GPT-4o, DeepSeek R1, Gemini 1.5, or Custom), configure API keys, and run step-by-step or full auto-pilot episodes with real-time score gauges and feedback.
+2. 🧪 **Custom Code Sandbox**: Paste custom Python snippets or pick from bug templates (SQL Injection, Command Injection, Secrets, Resource Leak, Insecure Pickle, Bare Except) to run automated AI code audits with fix previews.
+3. 🛡️ **Task Explorer**: Inspect all benchmark tasks, code snippets, ground-truth rules, and partial-credit reward weightings.
+4. 📊 **Benchmark Leaderboard & Analytics**: Recharts performance visualization comparing models across tasks, with episode history and JSON/CSV score export.
+5. 🔌 **OpenEnv API & MCP Inspector**: Interactive REST API tester and schema viewer compliant with Meta PyTorch OpenEnv specification.
 
 ---
 
 ## 🏗️ Environment Overview
 
-| Environment Attribute | Description / Details |
-| :--- | :--- |
-| **Task Type** | Text-based Code Review & Vulnerability Assessment |
-| **Action Space** | Structured Pydantic payload (Issues, Fixes, Severity, Exploit) |
-| **Observation Space** | Graded Python snippets with contextual metadata |
-| **Episode Length** | 3 Steps (sequential tasks: Easy → Medium → Hard) |
-| **Feedback Loop** | Cosine-similarity test oracle (Partial-Progress Rewards) |
+| Property | Value |
+|---|---|
+| Task type | Code review (text-based) |
+| Language | Python |
+| Framework | FastAPI + React (Vite) + OpenEnv |
+| Tasks | 3 (easy → medium → hard) + Custom Code Sandbox |
+| Episodes | Sequential — all 3 tasks per episode |
+| Score range | 0.0 – 1.0 per task |
 
 ---
 
@@ -58,7 +73,7 @@ The agent must reply with a structured response matching:
 
 ## 🏆 Benchmark Tasks
 
-### Task 1 — Easy: NameError (Syntax/Typo)
+### Task 1 — Easy: NameError (Typo)
 ```python
 def calculate_average(numbers):
     total = 0
@@ -86,43 +101,52 @@ def authenticate(username, password):
     query = "SELECT * FROM users WHERE username = '" + username + "'"
     cursor.execute(query) 
 ```
-* **Objective:** Identify the SQL injection vulnerability, demonstrate an exploit (e.g. `' OR '1'='1`), and rewrite it using parameterized bindings.
+* **Goal:** Name the vulnerability, show a concrete exploit (`' OR '1'='1`), and rewrite with parameterized queries.  
+* **Max score:** 1.0 | **Expected difficulty:** Challenges frontier models on exploit depth
 
 ---
 
-## 📊 Reward Mechanics
+## 🔌 API & UI Endpoints
 
-Rewards are not binary. The environment calculates **partial-progress credit** using the following weights:
-
-| Component | Weight | Criteria Evaluated |
-| :--- | :---: | :--- |
-| **Issue Detection** | **40%** | Accurate matching of target vulnerability strings. |
-| **Fix Accuracy** | **30%** | Code structural checks matching corrected patterns. |
-| **Severity Rating** | **15%** | Correct classification (Low/Medium/High/Critical). |
-| **Exploit Depth** | **15%** | Successful generation of exploit string (Task 3 only). |
+| Endpoint | Method | Description |
+|---|---|---|
+| `/` | GET | Interactive Web Dashboard UI |
+| `/reset` | POST | Start new episode, returns Observation |
+| `/step` | POST | Submit Action, returns StepResult + Reward |
+| `/state` | GET | Returns full EnvironmentState |
+| `/health` | GET | Health check |
+| `/tasks` | GET | List all task IDs and descriptions |
+| `/api/run-agent` | POST | Trigger live agent benchmark run |
+| `/api/evaluate-custom` | POST | Audit custom user Python snippet |
+| `/api/history` | GET | Fetch benchmark execution history |
 
 ---
 
-## 🚀 Setup & Execution
+## 🚀 Setup & Usage
 
-### 1. Python Environment Setup
-Ensure you have `python 3.10+` installed. Clone the repository and run:
+### Local Development (Python + Vite)
 ```bash
-# Install dependencies
+git clone https://github.com/nirnayyy/openenv-code-review
+cd openenv-code-review
+
+# Install backend dependencies
 pip install -r requirements.txt
 
-# Start the environment API server
+# Build frontend UI
+cd frontend && npm install && npm run build && cd ..
+
+# Start FastAPI server (serves both API & UI on port 8000)
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+Open `http://localhost:8000` in your browser!
 
-### 2. Docker Containerized Run
+### Single-Container Production Docker Deployment
 ```bash
 docker build -t code-review-openenv .
 docker run -p 8000:8000 code-review-openenv
 ```
 
-### 3. Running Baseline Inference
-Execute baseline agents using the HuggingFace router:
+### Run Baseline RL Evaluation Script
 ```bash
 export API_BASE_URL="https://router.huggingface.co/v1"
 export MODEL_NAME="meta-llama/Llama-3.3-70B-Instruct"
@@ -149,17 +173,22 @@ Evaluated on `meta-llama/Llama-3.3-70B-Instruct`:
 
 ## 📁 Repository Structure
 ```
-├── app/                  # FastAPI Environment Server
-│   ├── tasks/            # Task test cases and reward checks
-│   ├── environment.py    # Environment step and reset logic
-│   └── main.py           # FastAPI entry endpoints
-├── inference.py          # Baseline agent inference runner
-├── openenv.yaml          # OpenEnv configuration file
-├── Dockerfile            # Container config
-└── requirements.txt      # Python package spec
+openenv-code-review/
+├── inference.py          # Baseline inference script (mandatory)
+├── openenv.yaml          # OpenEnv spec metadata
+├── Dockerfile            # Multi-stage Docker container definition
+├── requirements.txt      # Python dependencies
+├── README.md
+├── app/
+│   ├── main.py           # FastAPI server & static UI router
+│   ├── models.py         # Pydantic models & API schemas
+│   ├── environment.py    # Core RL environment logic
+│   └── tasks/            # Benchmark task definitions
+└── frontend/             # React + Vite + Tailwind CSS Web App
+    ├── src/
+    │   ├── components/   # Dashboard UI components
+    │   ├── App.jsx
+    │   └── main.jsx
+    ├── package.json
+    └── vite.config.js
 ```
-
----
-
-## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
