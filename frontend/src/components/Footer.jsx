@@ -1,19 +1,8 @@
 import React from 'react';
 
 export default function Footer({ setActiveTab }) {
-  const marqueeItems = Array(10).fill("Meta PyTorch OpenEnv • Reinforcement Learning • AI Code Review • AST Parsing • ");
-
   return (
-    <footer className="bg-[#111111] text-[#F5F5F7] py-16 text-xs font-mono relative overflow-hidden">
-      
-      {/* Huge scrolling text marquee at the top of footer matching video */}
-      <div className="marquee-container border-b border-white/10 pb-12 mb-12">
-        <div className="marquee-content whitespace-nowrap text-white/5 select-none">
-          {marqueeItems.join("").toUpperCase()}
-          {marqueeItems.join("").toUpperCase()}
-        </div>
-      </div>
-
+    <footer className="bg-[#111111] dark:bg-[#07080A] text-[#F5F5F7] py-12 text-xs font-mono relative border-t border-[#E5E5EA] dark:border-[#262C36] transition-colors duration-300">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Footer details row */}

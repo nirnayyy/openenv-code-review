@@ -36,7 +36,7 @@ export default function HeroSection({ onGetStarted }) {
       ref={stageRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative py-12 md:py-24 bg-transparent hero-3d-stage overflow-hidden selection:bg-[#FF5500] selection:text-white"
+      className="relative py-12 md:py-24 bg-[#F5F5F7] dark:bg-[#0A0C0E] transition-colors duration-300 hero-3d-stage overflow-hidden selection:bg-[#FF5500] selection:text-white"
     >
       {/* Interactive Spotlight Radial Glow Following Cursor */}
       <div 
