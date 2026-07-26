@@ -16,7 +16,7 @@ def calculate_average(numbers):
     total = 0
     for num in numbers:
         total += num
-    average = totl / len(numbers)   # Line 6: typo — 'totl' should be 'total'
+    average = totl / len(numbers)   # Line 6: typo - 'totl' should be 'total'
     return average
 '''
 
