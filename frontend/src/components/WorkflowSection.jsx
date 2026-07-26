@@ -180,32 +180,32 @@ export default function WorkflowSection({ onTryDemo }) {
         </div>
       </section>
 
-      {/* 3. Endless Code Review Options (Futuristic High-Tech Grid) */}
-      <section className="py-16 md:py-24 bg-[#0D0E12] text-white relative overflow-hidden">
-        {/* Glow ambient lights */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FF5500]/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      {/* 3. Endless Code Review Options (Bright & High-Tech Grid) */}
+      <section className="py-16 md:py-24 bg-[#F5F5F7] border-t border-b border-[#E5E5EA] relative overflow-hidden">
+        {/* Subtle ambient light accents */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FF5500]/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
           
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E5E5EA] pb-8">
             <div className="max-w-xl text-left space-y-3">
               <span className="text-xs font-bold text-[#FF5500] tracking-widest block uppercase font-mono flex items-center space-x-2">
                 <ShieldCheck className="w-4 h-4" />
                 <span>:: COMPREHENSIVE AUDIT MATRIX</span>
               </span>
-              <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase font-mono">
-                Endless Code Review <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5500] via-amber-400 to-purple-400">Options</span>
+              <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase font-mono text-[#111111]">
+                Endless Code Review <span className="text-[#FF5500]">Options</span>
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-mono">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-mono">
                 Industrial-grade audit engines covering AST syntax trees, security vulnerabilities, memory leak tracing, and side-effect mutations.
               </p>
             </div>
             
             <button
               onClick={onTryDemo}
-              className="btn-orange-chaingpt px-8 py-3.5 text-xs self-start md:self-auto flex items-center space-x-2 shrink-0"
+              className="btn-orange-chaingpt px-8 py-3.5 text-xs self-start md:self-auto flex items-center space-x-2 shrink-0 shadow-sm"
             >
               <span>EXPLORE ALL AUDITS</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -216,151 +216,151 @@ export default function WorkflowSection({ onTryDemo }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Card 1: Security Vulnerability Audit */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 group-hover:scale-110 transition-transform">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-rose-50 border border-rose-200 text-rose-700 text-[10px] font-mono font-bold rounded-full uppercase">
                     150+ Checks
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">Security Vulnerability Audit</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">Security Vulnerability Audit</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Scans for SQL injection, unsanitized inputs, and authentication bypass routines with automated exploit proofing.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">COVERAGE</span>
-                <span className="text-rose-400 font-bold">CRITICAL / HIGH</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">COVERAGE</span>
+                <span className="text-rose-600 font-bold">CRITICAL / HIGH</span>
               </div>
             </div>
 
             {/* Card 2: AST Logic Tree Analysis */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 group-hover:scale-110 transition-transform">
                     <FileCode className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-purple-50 border border-purple-200 text-purple-700 text-[10px] font-mono font-bold rounded-full uppercase">
                     2,600+ Nodes
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">AST Logic Tree Analysis</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">AST Logic Tree Analysis</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Parses Python abstract syntax trees to detect control flow anomalies, dead branches, and unreachable logic.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">DEPTH</span>
-                <span className="text-purple-400 font-bold">FULL SYNTAX PARSE</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">DEPTH</span>
+                <span className="text-purple-600 font-bold">FULL SYNTAX PARSE</span>
               </div>
             </div>
 
             {/* Card 3: Memory & Resource Leak Scan */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
                     <Zap className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-mono font-bold rounded-full uppercase">
                     Zero Leak Guarantee
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">Resource Leak Tracer</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">Resource Leak Tracer</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Audits file handles, unclosed network sockets, and database connections to enforce context manager usage.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">RELIABILITY</span>
-                <span className="text-amber-400 font-bold">100% RESOURCE CLEAN</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">RELIABILITY</span>
+                <span className="text-amber-600 font-bold">100% RESOURCE CLEAN</span>
               </div>
             </div>
 
             {/* Card 4: In-place Side Effect Mutation */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
                     <Activity className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-700 text-[10px] font-mono font-bold rounded-full uppercase">
                     Side-effect Check
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">Mutation & Purity Guard</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">Mutation & Purity Guard</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Identifies parameter mutations (e.g. `.sort()`, `.reverse()`) inside functions and recommends pure replacements.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">PARADIGM</span>
-                <span className="text-blue-400 font-bold">FUNCTIONAL PURITY</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">PARADIGM</span>
+                <span className="text-blue-600 font-bold">FUNCTIONAL PURITY</span>
               </div>
             </div>
 
             {/* Card 5: Arbitrary Code Injection Shield */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                     <Cpu className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-mono font-bold rounded-full uppercase">
                     Shell Firewall
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">Command Injection Shield</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">Command Injection Shield</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Detects dangerous `eval()`, `exec()`, and `subprocess(shell=True)` calls to eliminate remote code execution vulnerabilities.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">PROTECTION</span>
-                <span className="text-emerald-400 font-bold">ZERO TRUST</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">PROTECTION</span>
+                <span className="text-emerald-600 font-bold">ZERO TRUST</span>
               </div>
             </div>
 
             {/* Card 6: Error Swallowing Audit */}
-            <div className="bg-[#16181E] border border-white/10 hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FF5500]/10 group">
+            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/20 flex items-center justify-center text-[#FF5500] group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF5500] group-hover:scale-110 transition-transform">
                     <CheckCircle className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-[#FF5500]/10 border border-[#FF5500]/30 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-orange-50 border border-orange-200 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
                     Traceability
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-mono">Exception Handler Inspector</h3>
-                  <p className="text-xs text-slate-400 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] font-mono">Exception Handler Inspector</h3>
+                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
                     Flags bare `except:` blocks that swallow runtime exceptions and enforces typed exception handling with log logging.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500">QUALITY</span>
+              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">QUALITY</span>
                 <span className="text-[#FF5500] font-bold">EXPLICIT HANDLERS</span>
               </div>
             </div>
