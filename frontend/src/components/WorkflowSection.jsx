@@ -217,7 +217,7 @@ export default function WorkflowSection({ onTryDemo }) {
             
             {/* Card 1: Security Vulnerability Audit */}
             <PinContainer title="RUN SECURITY AUDIT" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400">
@@ -244,7 +244,7 @@ export default function WorkflowSection({ onTryDemo }) {
 
             {/* Card 2: AST Logic Tree Analysis */}
             <PinContainer title="AST LOGIC TREE" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400">
@@ -271,7 +271,7 @@ export default function WorkflowSection({ onTryDemo }) {
 
             {/* Card 3: Memory & Resource Leak Scan */}
             <PinContainer title="RESOURCE TRACER" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -298,7 +298,7 @@ export default function WorkflowSection({ onTryDemo }) {
 
             {/* Card 4: In-place Side Effect Mutation */}
             <PinContainer title="STATE PURITY" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -325,7 +325,7 @@ export default function WorkflowSection({ onTryDemo }) {
 
             {/* Card 5: Command Injection Shield */}
             <PinContainer title="SHELL FIREWALL" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -352,7 +352,7 @@ export default function WorkflowSection({ onTryDemo }) {
 
             {/* Card 6: Exception Handler Inspector */}
             <PinContainer title="EXCEPTION INSPECTION" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
-              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+              <div className="flex flex-col justify-between space-y-4 p-4 w-[280px] sm:w-[310px] h-[250px] text-left bg-white dark:bg-[#181C22] rounded-xl border border-[#E5E5EA] dark:border-[#262C36] shadow-sm">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center text-[#FF5500]">
