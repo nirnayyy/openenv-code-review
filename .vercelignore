@@ -1,0 +1,7 @@
+app/
+inference.py
+requirements.txt
+pyproject.toml
+uv.lock
+tests/
+venv/
