@@ -55,17 +55,17 @@ export default function HeroSection({ onGetStarted }) {
           
           {/* Left Column (Content) */}
           <div className="lg:col-span-5 space-y-8 animate-fade-in-up text-left">
-            <span className="px-4 py-1.5 bg-white border border-[#E5E5EA] rounded-full text-xs font-bold text-[#FF5500] uppercase tracking-wider inline-flex items-center space-x-2 shadow-sm">
+            <span className="px-4 py-1.5 bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] rounded-full text-xs font-bold text-[#FF5500] uppercase tracking-wider inline-flex items-center space-x-2 shadow-sm">
               <Sparkles className="w-3.5 h-3.5" />
               <span>AI CODE REVIEW BENCHMARK SYSTEM</span>
             </span>
 
             {/* Serif & Sans Typography matching premium design */}
-            <h1 className="text-5xl sm:text-7xl font-extrabold text-[#111111] leading-[1.05] tracking-tight">
-              The AI Code Review <span className="font-serif italic font-normal text-slate-800">Journey</span> Starts Here
+            <h1 className="text-5xl sm:text-7xl font-extrabold text-[#111111] dark:text-white leading-[1.05] tracking-tight">
+              The AI Code Review <span className="font-serif italic font-normal text-slate-800 dark:text-slate-200">Journey</span> Starts Here
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-mono max-w-lg">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-mono max-w-lg">
               Empowering AI agents with real-time reinforcement learning code audits, safety grading, security shields, and AST bug checkmarks.
             </p>
 
@@ -80,7 +80,7 @@ export default function HeroSection({ onGetStarted }) {
               
               <a
                 href="#features"
-                className="px-8 py-4 bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-full text-xs font-bold text-slate-800 flex items-center justify-center transition shadow-sm"
+                className="px-8 py-4 bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] dark:hover:border-[#FF5500] rounded-full text-xs font-bold text-slate-800 dark:text-white flex items-center justify-center transition shadow-sm"
               >
                 EXPLORE SPEC
               </a>
@@ -88,23 +88,23 @@ export default function HeroSection({ onGetStarted }) {
 
             {/* Left mini floating stats row */}
             <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="floating-card p-4 flex items-center space-x-3 bg-white">
-                <div className="w-10 h-10 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF5500]">
+              <div className="floating-card p-4 flex items-center space-x-3 bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] rounded-2xl">
+                <div className="w-10 h-10 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center text-[#FF5500]">
                   <Flame className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-400 block font-mono">REWARD TARGET</span>
-                  <span className="text-sm font-bold text-slate-800">1.00 MAX</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-400 block font-mono">REWARD TARGET</span>
+                  <span className="text-sm font-bold text-slate-800 dark:text-white">1.00 MAX</span>
                 </div>
               </div>
 
-              <div className="floating-card p-4 flex items-center space-x-3 bg-white">
-                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-500">
+              <div className="floating-card p-4 flex items-center space-x-3 bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] rounded-2xl">
+                <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 flex items-center justify-center text-blue-500">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-400 block font-mono">AUDIT LATENCY</span>
-                  <span className="text-sm font-bold text-slate-800">0.4 SEC</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-400 block font-mono">AUDIT LATENCY</span>
+                  <span className="text-sm font-bold text-slate-800 dark:text-white">0.4 SEC</span>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function HeroSection({ onGetStarted }) {
 
               {/* Left Floating Card: Llama Agent Badge (PARALLAX LAYER 2) */}
               <div 
-                className="absolute -top-6 -left-4 sm:left-0 z-30 floating-card p-4 border border-[#E5E5EA] flex items-center space-x-3 bg-white w-60 shadow-xl layer-depth-2"
+                className="absolute -top-6 -left-4 sm:left-0 z-30 floating-card p-4 border border-[#E5E5EA] dark:border-[#262C36] flex items-center space-x-3 bg-white dark:bg-[#181C22] rounded-2xl w-60 shadow-xl layer-depth-2"
                 style={{
                   transform: `translateZ(50px) translateY(${tilt.rotateX * -1.5}px) translateX(${tilt.rotateY * 1.2}px)`
                 }}
@@ -134,30 +134,30 @@ export default function HeroSection({ onGetStarted }) {
                 <img
                   src="https://api.dicebear.com/7.x/bottts/svg?seed=davis"
                   alt="Llama Agent"
-                  className="w-10 h-10 rounded-full bg-[#F5F5F7] border border-[#E5E5EA]"
+                  className="w-10 h-10 rounded-full bg-[#F5F5F7] dark:bg-[#0A0C0E] border border-[#E5E5EA] dark:border-[#262C36]"
                 />
                 <div className="text-left">
                   <div className="flex items-center space-x-1.5">
-                    <h4 className="text-[11px] font-bold text-slate-800 uppercase font-mono">Llama-3.3-70B</h4>
+                    <h4 className="text-[11px] font-bold text-slate-800 dark:text-white uppercase font-mono">Llama-3.3-70B</h4>
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                   </div>
-                  <p className="text-[9px] text-slate-500 font-mono">AI Auditor of the Year</p>
+                  <p className="text-[9px] text-slate-500 dark:text-slate-400 font-mono">AI Auditor of the Year</p>
                 </div>
               </div>
 
               {/* Right Floating Card: AST Code Shield (PARALLAX LAYER 3) */}
               <div 
-                className="absolute -bottom-6 -right-4 sm:right-0 z-30 floating-card p-4 border border-[#E5E5EA] flex items-center space-x-3 bg-white w-56 shadow-xl layer-depth-3"
+                className="absolute -bottom-6 -right-4 sm:right-0 z-30 floating-card p-4 border border-[#E5E5EA] dark:border-[#262C36] flex items-center space-x-3 bg-white dark:bg-[#181C22] rounded-2xl w-56 shadow-xl layer-depth-3"
                 style={{
                   transform: `translateZ(70px) translateY(${tilt.rotateX * 1.5}px) translateX(${tilt.rotateY * -1.2}px)`
                 }}
               >
-                <div className="p-2 bg-emerald-50 rounded-full text-emerald-600">
+                <div className="p-2 bg-emerald-50 dark:bg-emerald-950/40 rounded-full text-emerald-600 dark:text-emerald-400">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div className="text-left font-mono">
-                  <h4 className="text-[11px] font-bold text-slate-800">AST CODE SHIELD</h4>
-                  <p className="text-[9px] text-emerald-600 font-bold">✓ Security shield active</p>
+                  <h4 className="text-[11px] font-bold text-slate-800 dark:text-white">AST CODE SHIELD</h4>
+                  <p className="text-[9px] text-emerald-600 dark:text-emerald-400 font-bold">✓ Security shield active</p>
                 </div>
               </div>
 
@@ -175,12 +175,12 @@ export default function HeroSection({ onGetStarted }) {
                 </div>
 
                 {/* PC Screen Content (Split View: Editor + Console) */}
-                <div className="pc-screen-content grid grid-cols-12 h-full bg-[#F5F5F7]">
+                <div className="pc-screen-content grid grid-cols-12 h-full bg-[#F5F5F7] dark:bg-[#121519]">
                   
                   {/* Editor Sidebar (3 cols) */}
-                  <div className="col-span-3 border-r border-[#E5E5EA] bg-white p-3 space-y-3 font-mono text-[9px] text-left">
-                    <span className="font-bold text-slate-400 block uppercase">FILES</span>
-                    <ul className="space-y-1.5 text-slate-600 font-medium">
+                  <div className="col-span-3 border-r border-[#E5E5EA] dark:border-[#262C36] bg-white dark:bg-[#181C22] p-3 space-y-3 font-mono text-[9px] text-left">
+                    <span className="font-bold text-slate-400 dark:text-slate-400 block uppercase">FILES</span>
+                    <ul className="space-y-1.5 text-slate-600 dark:text-slate-300 font-medium">
                       <li className="text-[#FF5500] font-bold">✓ main.py</li>
                       <li>✗ test_ast.py</li>
                       <li>✓ grader.py</li>
@@ -191,12 +191,12 @@ export default function HeroSection({ onGetStarted }) {
                   {/* Editor Content Area (9 cols) */}
                   <div className="col-span-9 p-4 flex flex-col justify-between space-y-4">
                     {/* Greeting header */}
-                    <div className="flex justify-between items-center border-b border-[#E5E5EA] pb-2">
+                    <div className="flex justify-between items-center border-b border-[#E5E5EA] dark:border-[#262C36] pb-2">
                       <div className="text-left">
                         <span className="text-[9px] text-slate-400 uppercase font-mono">SYS_VER: 1.0.0 //</span>
-                        <h3 className="text-sm font-bold text-slate-800 font-mono">Hey, Agent!</h3>
+                        <h3 className="text-sm font-bold text-slate-800 dark:text-white font-mono">Hey, Agent!</h3>
                       </div>
-                      <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-slate-700">
+                      <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-200">
                         <Cpu className="w-4 h-4" />
                       </div>
                     </div>
@@ -215,12 +215,12 @@ export default function HeroSection({ onGetStarted }) {
                     </div>
 
                     {/* Execution Progress Bar */}
-                    <div className="bg-white p-3 rounded-xl border border-[#E5E5EA] space-y-2 shadow-sm">
+                    <div className="bg-white dark:bg-[#181C22] p-3 rounded-xl border border-[#E5E5EA] dark:border-[#262C36] space-y-2 shadow-sm">
                       <div className="flex justify-between items-center text-[9px] font-mono">
-                        <span className="text-slate-500">Benchmark Progress</span>
+                        <span className="text-slate-500 dark:text-slate-400">Benchmark Progress</span>
                         <span className="text-[#FF5500] font-bold">3 of 3 tasks running</span>
                       </div>
-                      <div className="w-full bg-[#F5F5F7] h-2 rounded-full overflow-hidden">
+                      <div className="w-full bg-[#F5F5F7] dark:bg-[#0A0C0E] h-2 rounded-full overflow-hidden">
                         <div className="bg-[#FF5500] h-full rounded-full w-[100%] animate-pulse"></div>
                       </div>
                     </div>
@@ -237,4 +237,5 @@ export default function HeroSection({ onGetStarted }) {
     </section>
   );
 }
+
 
