@@ -9,7 +9,7 @@ import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
 import { supabase } from './utils/supabaseClient';
-import { Lock, ShieldCheck, ArrowRight, LogIn } from 'lucide-react';
+import { Lock, LogIn } from 'lucide-react';
 
 // Application Pages & Playground Workspaces
 import AgentPlayground from './components/AgentPlayground';
@@ -17,6 +17,7 @@ import CustomSandbox from './components/CustomSandbox';
 import TaskExplorer from './components/TaskExplorer';
 import Analytics from './components/Analytics';
 import ApiDocs from './components/ApiDocs';
+import UserProfile from './components/UserProfile';
 import ErrorBoundary from './components/ErrorBoundary';
 
 export default function App() {
@@ -34,7 +35,8 @@ export default function App() {
     sandbox: 'Code Sandbox — Custom AI Code Audits',
     tasks: 'Agent Suite — OpenEnv Task Benchmark Explorer',
     analytics: 'Leaderboard & Analytics — OpenEnv Benchmark',
-    apidocs: 'API Documentation & OpenAPI Spec — OpenEnv'
+    apidocs: 'API Documentation & OpenAPI Spec — OpenEnv',
+    profile: 'Researcher Profile & Account Control Center — OpenEnv'
   };
 
   // Check active session on mount & subscribe to auth state changes
@@ -112,12 +114,13 @@ export default function App() {
         sandbox: 'Custom Code Sandbox',
         tasks: 'Agent Benchmark Suite',
         analytics: 'Leaderboard & Metrics',
-        apidocs: 'API Specs & Documentation'
+        apidocs: 'API Specs & Documentation',
+        profile: 'Researcher Profile Center'
       };
-      const customReason = reason || `AUTHENTICATION REQUIRED: Please sign in or register to access the ${tabLabels[tabId] || 'OpenEnv'} service.`;
+      const customReason = reason || `AUTHENTICATION REQUIRED: Please sign in or register to access ${tabLabels[tabId] || 'OpenEnv'}.`;
       setAuthReason(customReason);
       setAuthModalOpen(true);
-      triggerAlert("ACCESS RESTRICTED: Login required to use AI services.", "SYS_ALERT");
+      triggerAlert("ACCESS RESTRICTED: Login required to view profile.", "SYS_ALERT");
       return;
     }
 
@@ -327,6 +330,18 @@ export default function App() {
               <div className="animate-fade-in-up">
                 <ApiDocs />
               </div>
+            </div>
+          )}
+
+          {/* USER PROFILE (AUTHENTICATED) */}
+          {activeTab === 'profile' && user && (
+            <div className="animate-fade-in-up">
+              <UserProfile
+                user={user}
+                onUpdateUser={(updated) => setUser(updated)}
+                onLogout={handleLogout}
+                onNavigate={handleNavigate}
+              />
             </div>
           )}
         </ErrorBoundary>

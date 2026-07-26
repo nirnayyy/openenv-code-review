@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Menu, X, LogOut, ShieldCheck, Lock } from 'lucide-react';
+import { ArrowUpRight, Menu, X, LogOut, ShieldCheck, Lock, User } from 'lucide-react';
 import AuthModal from './AuthModal';
 
 export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAuthModal }) {
@@ -12,6 +12,10 @@ export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAu
     { id: 'tasks', label: 'Agent Suite' },
     { id: 'analytics', label: 'Leaderboard' },
   ];
+
+  if (user) {
+    navLinks.push({ id: 'profile', label: 'Profile' });
+  }
 
   return (
     <>
@@ -58,10 +62,15 @@ export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAu
             <div className="hidden sm:flex items-center space-x-3 font-mono">
               {user ? (
                 <div className="flex items-center space-x-2">
-                  <div className="flex items-center space-x-2 px-3 py-1.5 bg-white border border-[#E5E5EA] rounded-full shadow-sm">
+                  <button
+                    onClick={() => onNavigate('profile')}
+                    className={`flex items-center space-x-2 px-3 py-1.5 border rounded-full shadow-sm transition ${
+                      activeTab === 'profile' ? 'bg-orange-50 border-[#FF5500] text-[#FF5500]' : 'bg-white border-[#E5E5EA] hover:border-[#FF5500] text-slate-800'
+                    }`}
+                  >
                     <img src={user.avatar} alt="User Avatar" className="w-4 h-4 rounded-full" />
-                    <span className="text-xs font-bold text-slate-800 truncate max-w-[110px]">{user.name}</span>
-                  </div>
+                    <span className="text-xs font-bold truncate max-w-[110px]">{user.name}</span>
+                  </button>
                   <button
                     onClick={onLogout}
                     title="Sign Out"
@@ -118,10 +127,16 @@ export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAu
               <div className="px-4 pt-2 space-y-2">
                 {user ? (
                   <div className="flex items-center justify-between p-2.5 bg-white border border-[#E5E5EA]">
-                    <div className="flex items-center space-x-2">
+                    <button 
+                      onClick={() => {
+                        onNavigate('profile');
+                        setMobileMenuOpen(false);
+                      }}
+                      className="flex items-center space-x-2 text-left"
+                    >
                       <img src={user.avatar} alt="User Avatar" className="w-5 h-5 rounded-full" />
-                      <span className="text-xs font-bold text-slate-800">{user.name}</span>
-                    </div>
+                      <span className="text-xs font-bold text-slate-800">{user.name} (View Profile)</span>
+                    </button>
                     <button onClick={onLogout} className="text-xs text-rose-600 font-bold flex items-center space-x-1">
                       <LogOut className="w-3.5 h-3.5" />
                       <span>LOGOUT</span>
@@ -155,4 +170,5 @@ export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAu
     </>
   );
 }
+
 
