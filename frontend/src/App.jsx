@@ -28,6 +28,29 @@ export default function App() {
   const [authReason, setAuthReason] = useState('');
   const [pendingTab, setPendingTab] = useState(null);
 
+  // Theme Mode State ('light' or 'dark')
+  const [theme, setTheme] = useState(localStorage.getItem('openenv_theme') || 'light');
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('openenv_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => {
+      const nextTheme = prev === 'dark' ? 'light' : 'dark';
+      triggerAlert(`THEME SWITCHED TO ${nextTheme.toUpperCase()} MODE`, 'SYS_OK');
+      return nextTheme;
+    });
+  };
+
   // Title map per tab
   const titleMap = {
     home: 'OpenEnv LABS — AI Code Review RL Benchmark',
@@ -151,7 +174,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#E6E8EA] text-[#111111] font-mono flex flex-col transition-colors duration-300 selection:bg-[#FF5500] selection:text-white">
+    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)] font-mono flex flex-col transition-colors duration-300 selection:bg-[#FF5500] selection:text-white">
       {/* Top Navbar */}
       <Navbar 
         activeTab={activeTab} 
@@ -162,6 +185,8 @@ export default function App() {
           setAuthReason('Sign in to access your saved RL benchmark sessions and custom audit history.');
           setAuthModalOpen(true);
         }}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       {/* Main Router Content */}
