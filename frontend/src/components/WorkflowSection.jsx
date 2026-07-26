@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, ShieldCheck, FileCode, Zap, Activity, Cpu, CheckCircle } from 'lucide-react';
+import { PinContainer } from './ui/3d-pin';
 
 export default function WorkflowSection({ onTryDemo }) {
   const coaches = [
@@ -211,158 +212,170 @@ export default function WorkflowSection({ onTryDemo }) {
             </button>
           </div>
 
-          {/* 6 High-Tech Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 6 High-Tech 3D Pin Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8 pt-6 pb-16">
             
             {/* Card 1: Security Vulnerability Audit */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 group-hover:scale-110 transition-transform">
-                    <ShieldCheck className="w-6 h-6" />
+            <PinContainer title="RUN SECURITY AUDIT" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-[10px] font-mono font-bold rounded-full uppercase">
+                      150+ Checks
+                    </span>
                   </div>
-                  <span className="px-2.5 py-1 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-[10px] font-mono font-bold rounded-full uppercase">
-                    150+ Checks
-                  </span>
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">Security Vulnerability Audit</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Scans for SQL injection, unsanitized inputs, and auth bypass routines with automated exploit proofing.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Security Vulnerability Audit</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Scans for SQL injection, unsanitized inputs, and authentication bypass routines with automated exploit proofing.
-                  </p>
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">COVERAGE</span>
-                <span className="text-rose-600 dark:text-rose-400 font-bold">CRITICAL / HIGH</span>
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">COVERAGE</span>
+                  <span className="text-rose-600 dark:text-rose-400 font-bold">CRITICAL / HIGH</span>
+                </div>
               </div>
-            </div>
+            </PinContainer>
 
             {/* Card 2: AST Logic Tree Analysis */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
-                    <FileCode className="w-6 h-6" />
+            <PinContainer title="AST LOGIC TREE" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                      <FileCode className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 text-purple-700 dark:text-purple-300 text-[10px] font-mono font-bold rounded-full uppercase">
+                      2,600+ Nodes
+                    </span>
                   </div>
-                  <span className="px-2.5 py-1 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 text-purple-700 dark:text-purple-300 text-[10px] font-mono font-bold rounded-full uppercase">
-                    2,600+ Nodes
-                  </span>
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">AST Logic Tree Analysis</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Parses Python abstract syntax trees to detect control flow anomalies, dead branches, and unreachable logic.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">AST Logic Tree Analysis</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Parses Python abstract syntax trees to detect control flow anomalies, dead branches, and unreachable logic.
-                  </p>
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">DEPTH</span>
-                <span className="text-purple-600 dark:text-purple-400 font-bold">FULL SYNTAX PARSE</span>
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">DEPTH</span>
+                  <span className="text-purple-600 dark:text-purple-400 font-bold">FULL SYNTAX PARSE</span>
+                </div>
               </div>
-            </div>
+            </PinContainer>
 
             {/* Card 3: Memory & Resource Leak Scan */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform">
-                    <Zap className="w-6 h-6" />
+            <PinContainer title="RESOURCE TRACER" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-300 text-[10px] font-mono font-bold rounded-full uppercase">
+                      Zero Leak
+                    </span>
                   </div>
-                  <span className="px-2.5 py-1 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-300 text-[10px] font-mono font-bold rounded-full uppercase">
-                    Zero Leak Guarantee
-                  </span>
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">Resource Leak Tracer</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Audits file handles, unclosed network sockets, and database connections to enforce context manager usage.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Resource Leak Tracer</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Audits file handles, unclosed network sockets, and database connections to enforce context manager usage.
-                  </p>
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">RELIABILITY</span>
-                <span className="text-amber-600 dark:text-amber-400 font-bold">100% RESOURCE CLEAN</span>
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">RELIABILITY</span>
+                  <span className="text-amber-600 dark:text-amber-400 font-bold">100% RESOURCE CLEAN</span>
+                </div>
               </div>
-            </div>
+            </PinContainer>
 
             {/* Card 4: In-place Side Effect Mutation */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
-                    <Activity className="w-6 h-6" />
+            <PinContainer title="STATE PURITY" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                      <Activity className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 text-blue-700 dark:text-blue-300 text-[10px] font-mono font-bold rounded-full uppercase">
+                      Side-effect Check
+                    </span>
                   </div>
-                  <span className="px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 text-blue-700 dark:text-blue-300 text-[10px] font-mono font-bold rounded-full uppercase">
-                    Side-effect Check
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Mutation & Purity Guard</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Identifies parameter mutations (e.g. `.sort()`, `.reverse()`) inside functions and recommends pure replacements.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">PARADIGM</span>
-                <span className="text-blue-600 dark:text-blue-400 font-bold">FUNCTIONAL PURITY</span>
-              </div>
-            </div>
-
-            {/* Card 5: Arbitrary Code Injection Shield */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
-                    <Cpu className="w-6 h-6" />
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">Mutation & Purity Guard</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Identifies parameter mutations (e.g. `.sort()`, `.reverse()`) inside functions and recommends pure replacements.
+                    </p>
                   </div>
-                  <span className="px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold rounded-full uppercase">
-                    Shell Firewall
-                  </span>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Command Injection Shield</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Detects dangerous `eval()`, `exec()`, and `subprocess(shell=True)` calls to eliminate remote code execution vulnerabilities.
-                  </p>
+
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">PARADIGM</span>
+                  <span className="text-blue-600 dark:text-blue-400 font-bold">FUNCTIONAL PURITY</span>
                 </div>
               </div>
+            </PinContainer>
 
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">PROTECTION</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">ZERO TRUST</span>
-              </div>
-            </div>
-
-            {/* Card 6: Error Swallowing Audit */}
-            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-              <div className="space-y-4 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center text-[#FF5500] group-hover:scale-110 transition-transform">
-                    <CheckCircle className="w-6 h-6" />
+            {/* Card 5: Command Injection Shield */}
+            <PinContainer title="SHELL FIREWALL" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                      <Cpu className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold rounded-full uppercase">
+                      Shell Firewall
+                    </span>
                   </div>
-                  <span className="px-2.5 py-1 bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
-                    Traceability
-                  </span>
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">Command Injection Shield</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Detects dangerous `eval()`, `exec()`, and `subprocess(shell=True)` calls to eliminate remote code execution vulnerabilities.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Exception Handler Inspector</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
-                    Flags bare `except:` blocks that swallow runtime exceptions and enforces typed exception handling with log logging.
-                  </p>
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">QUALITY</span>
-                <span className="text-[#FF5500] font-bold">EXPLICIT HANDLERS</span>
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">PROTECTION</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">ZERO TRUST</span>
+                </div>
               </div>
-            </div>
+            </PinContainer>
+
+            {/* Card 6: Exception Handler Inspector */}
+            <PinContainer title="EXCEPTION INSPECTION" containerClassName="w-full h-[320px]" onClick={onTryDemo}>
+              <div className="flex flex-col justify-between space-y-4 p-2 w-[280px] sm:w-[310px] h-[250px] text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center text-[#FF5500]">
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                    <span className="px-2.5 py-0.5 bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
+                      Traceability
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-[#111111] dark:text-[#F3F4F6] font-mono leading-tight">Exception Handler Inspector</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
+                      Flags bare `except:` blocks that swallow runtime exceptions and enforces typed exception handling with log logging.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400">QUALITY</span>
+                  <span className="text-[#FF5500] font-bold">EXPLICIT HANDLERS</span>
+                </div>
+              </div>
+            </PinContainer>
 
           </div>
         </div>
