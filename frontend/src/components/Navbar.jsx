@@ -1,48 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Menu, X, LogOut } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, Menu, X, LogOut, ShieldCheck, Lock } from 'lucide-react';
 import AuthModal from './AuthModal';
-import { supabase } from '../utils/supabaseClient';
 
-export default function Navbar({ activeTab, setActiveTab }) {
+export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAuthModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // Check active session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        setUser({
-          name: session.user.user_metadata?.display_name || session.user.email.split('@')[0],
-          email: session.user.email,
-          avatar: session.user.user_metadata?.avatar_url || `https://api.dicebear.com/7.x/bottts/svg?seed=${session.user.email}`
-        });
-      }
-    });
-
-    // Listen to changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        setUser({
-          name: session.user.user_metadata?.display_name || session.user.email.split('@')[0],
-          email: session.user.email,
-          avatar: session.user.user_metadata?.avatar_url || `https://api.dicebear.com/7.x/bottts/svg?seed=${session.user.email}`
-        });
-      } else {
-        setUser(null);
-      }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    localStorage.removeItem('openenv_user');
-    setUser(null);
-  };
 
   const navLinks = [
     { id: 'home', label: 'Benchmark Setup' },
@@ -60,7 +21,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
             
             {/* Brand Logo */}
             <button
-              onClick={() => setActiveTab('home')}
+              onClick={() => onNavigate('home')}
               className="flex items-center space-x-2 focus:outline-none group"
             >
               <img
@@ -78,28 +39,31 @@ export default function Navbar({ activeTab, setActiveTab }) {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => setActiveTab(link.id)}
-                  className={`transition-colors py-1 ${
+                  onClick={() => onNavigate(link.id)}
+                  className={`transition-colors py-1 flex items-center space-x-1 ${
                     activeTab === link.id
                       ? 'text-[#FF5500] border-b-2 border-[#FF5500]'
                       : 'hover:text-[#111111]'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {!user && link.id !== 'home' && (
+                    <Lock className="w-3 h-3 text-slate-400 group-hover:text-[#FF5500]" />
+                  )}
                 </button>
               ))}
             </nav>
 
-            {/* Right Button */}
+            {/* Right Action Buttons */}
             <div className="hidden sm:flex items-center space-x-3 font-mono">
               {user ? (
                 <div className="flex items-center space-x-2">
-                  <div className="flex items-center space-x-2 px-3 py-1.5 bg-white border border-[#E5E5EA] rounded-full">
+                  <div className="flex items-center space-x-2 px-3 py-1.5 bg-white border border-[#E5E5EA] rounded-full shadow-sm">
                     <img src={user.avatar} alt="User Avatar" className="w-4 h-4 rounded-full" />
-                    <span className="text-xs font-bold text-slate-800 truncate max-w-[90px]">{user.name}</span>
+                    <span className="text-xs font-bold text-slate-800 truncate max-w-[110px]">{user.name}</span>
                   </div>
                   <button
-                    onClick={handleLogout}
+                    onClick={onLogout}
                     title="Sign Out"
                     className="p-2 text-slate-500 hover:text-rose-600 transition"
                   >
@@ -108,14 +72,14 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 </div>
               ) : (
                 <button
-                  onClick={() => setAuthModalOpen(true)}
-                  className="px-4 py-2 text-xs font-bold text-slate-700 hover:text-[#FF5500] transition"
+                  onClick={onOpenAuthModal}
+                  className="px-4 py-2 text-xs font-bold text-slate-700 hover:text-[#FF5500] transition border border-[#E5E5EA] bg-white rounded-none"
                 >
                   SIGN IN
                 </button>
               )}
               <button
-                onClick={() => setActiveTab('playground')}
+                onClick={() => onNavigate('playground')}
                 className="btn-orange-chaingpt px-6 py-2.5 text-xs"
               >
                 Run Benchmark
@@ -138,41 +102,45 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 <button
                   key={link.id}
                   onClick={() => {
-                    setActiveTab(link.id);
+                    onNavigate(link.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2 text-xs font-mono font-bold ${
+                  className={`w-full text-left px-4 py-2 text-xs font-mono font-bold flex items-center justify-between ${
                     activeTab === link.id ? 'text-[#FF5500]' : 'text-slate-800'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {!user && link.id !== 'home' && (
+                    <Lock className="w-3.5 h-3.5 text-slate-400" />
+                  )}
                 </button>
               ))}
               <div className="px-4 pt-2 space-y-2">
                 {user ? (
-                  <div className="flex items-center justify-between p-2 bg-white border border-[#E5E5EA] rounded-xl">
+                  <div className="flex items-center justify-between p-2.5 bg-white border border-[#E5E5EA]">
                     <div className="flex items-center space-x-2">
                       <img src={user.avatar} alt="User Avatar" className="w-5 h-5 rounded-full" />
                       <span className="text-xs font-bold text-slate-800">{user.name}</span>
                     </div>
-                    <button onClick={handleLogout} className="text-xs text-rose-600 font-bold">
-                      SIGN OUT
+                    <button onClick={onLogout} className="text-xs text-rose-600 font-bold flex items-center space-x-1">
+                      <LogOut className="w-3.5 h-3.5" />
+                      <span>LOGOUT</span>
                     </button>
                   </div>
                 ) : (
                   <button
                     onClick={() => {
-                      setAuthModalOpen(true);
+                      onOpenAuthModal();
                       setMobileMenuOpen(false);
                     }}
                     className="w-full py-2.5 text-xs font-mono font-bold bg-white border border-[#E5E5EA] text-slate-800"
                   >
-                    SIGN IN
+                    SIGN IN / REGISTER
                   </button>
                 )}
                 <button
                   onClick={() => {
-                    setActiveTab('playground');
+                    onNavigate('playground');
                     setMobileMenuOpen(false);
                   }}
                   className="w-full btn-orange-chaingpt py-2.5 text-xs"
@@ -184,12 +152,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
           )}
         </div>
       </header>
-
-      <AuthModal
-        isOpen={authModalOpen}
-        onClose={() => setAuthModalOpen(false)}
-        onLoginSuccess={(userData) => setUser(userData)}
-      />
     </>
   );
 }
+
