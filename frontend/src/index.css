@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --bg-primary: #F5F5F7;
-    --bg-secondary: #E6E8EA;
+    --bg-secondary: #FAFAFC;
     --bg-card: #FFFFFF;
     --border-color: #E5E5EA;
     --text-primary: #111111;
@@ -14,12 +14,12 @@
   }
 
   html.dark {
-    --bg-primary: #0A0C0E;
-    --bg-secondary: #121519;
-    --bg-card: #181C22;
-    --border-color: #262C36;
-    --text-primary: #F3F4F6;
-    --text-secondary: #9CA3AF;
+    --bg-primary: #F5F5F7;
+    --bg-secondary: #FAFAFC;
+    --bg-card: #FFFFFF;
+    --border-color: #E5E5EA;
+    --text-primary: #111111;
+    --text-secondary: #4B5563;
     --accent-orange: #FF5500;
   }
 
