@@ -63,18 +63,18 @@ export default function Navbar({ activeTab, onNavigate, user, onLogout, onOpenAu
               {/* Dark / Light Mode Toggle Button */}
               <button
                 onClick={onToggleTheme}
-                title={theme === 'dark' ? "Click to switch to Bright Light Mode" : "Click to switch to Dark Cyber Mode"}
+                title={theme === 'dark' ? "Switch to Bright Light Canvas" : "Switch to Dark Cyber Mode"}
                 className="p-2 border border-[#E5E5EA] dark:border-[#262C36] bg-white dark:bg-[#181C22] text-slate-700 dark:text-slate-200 hover:border-[#FF5500] dark:hover:border-[#FF5500] transition rounded-full flex items-center justify-center space-x-1.5 px-3"
               >
                 {theme === 'dark' ? (
                   <>
                     <Sun className="w-4 h-4 text-amber-400" />
-                    <span className="text-[10px] font-bold text-amber-400 uppercase">DARK MODE</span>
+                    <span className="text-[10px] font-bold text-amber-400 uppercase">SWITCH TO LIGHT</span>
                   </>
                 ) : (
                   <>
                     <Moon className="w-4 h-4 text-indigo-600" />
-                    <span className="text-[10px] font-bold text-indigo-600 uppercase">LIGHT MODE</span>
+                    <span className="text-[10px] font-bold text-indigo-600 uppercase">SWITCH TO DARK</span>
                   </>
                 )}
               </button>
