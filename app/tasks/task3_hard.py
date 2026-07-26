@@ -67,9 +67,9 @@ def grade(action: Action) -> Reward:
     if any(k in all_text for k in vuln_keywords):
         score += 0.30
         issue_detected = True
-        feedback_parts.append("✓ Correctly identified SQL injection vulnerability.")
+        feedback_parts.append("[+] Correctly identified SQL injection vulnerability.")
     else:
-        feedback_parts.append("✗ Failed to identify SQL injection.")
+        feedback_parts.append("[-] Failed to identify SQL injection.")
 
     # ── Check 2: Exploit example (0.25) ───────────────────────────────────────
     exploit_keywords = [
@@ -78,33 +78,33 @@ def grade(action: Action) -> Reward:
     ]
     if any(k in all_text for k in exploit_keywords):
         score += 0.25
-        feedback_parts.append("✓ Provided a concrete exploit example.")
+        feedback_parts.append("[+] Provided a concrete exploit example.")
     elif issue_detected:
         score += 0.10
-        feedback_parts.append("~ Identified vulnerability but no concrete exploit shown.")
+        feedback_parts.append("[~] Identified vulnerability but no concrete exploit shown.")
     else:
-        feedback_parts.append("✗ No exploit example provided.")
+        feedback_parts.append("[-] No exploit example provided.")
 
     # ── Check 3: Parameterized fix (0.30) ─────────────────────────────────────
     fix_keywords = ["parameterized", "placeholder", "cursor.execute(query, (", "? ,", "(username,)", "prepared statement", "?"]
     if any(k in all_fix for k in fix_keywords):
         fix_quality = 1.0
         score += 0.30
-        feedback_parts.append("✓ Provided correct parameterized query fix.")
+        feedback_parts.append("[+] Provided correct parameterized query fix.")
     elif issue_detected:
         fix_quality = 0.4
         score += 0.12
-        feedback_parts.append("~ Mentioned fix but didn't provide parameterized query code.")
+        feedback_parts.append("[~] Mentioned fix but didn't provide parameterized query code.")
     else:
-        feedback_parts.append("✗ No secure fix provided.")
+        feedback_parts.append("[-] No secure fix provided.")
 
     # ── Check 4: Severity = critical (0.15) ───────────────────────────────────
     if action.severity.lower() == "critical":
         severity_correct = True
         score += 0.15
-        feedback_parts.append("✓ Correctly rated as critical.")
+        feedback_parts.append("[+] Correctly rated as critical.")
     else:
-        feedback_parts.append(f"✗ SQL injection is 'critical', got '{action.severity}'.")
+        feedback_parts.append(f"[-] SQL injection is 'critical', got '{action.severity}'.")
 
     return Reward(
         score=round(min(score, 1.0), 4),

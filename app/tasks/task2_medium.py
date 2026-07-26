@@ -47,38 +47,38 @@ def grade(action: Action) -> Reward:
     if any(k in all_text for k in index_keywords):
         score += 0.35
         issue_detected = True
-        feedback_parts.append("✓ Identified the wrong index bug.")
+        feedback_parts.append("[+] Identified the wrong index bug.")
     else:
-        feedback_parts.append("✗ Missed: numbers[1] returns the 2nd smallest, not 2nd largest.")
+        feedback_parts.append("[-] Missed: numbers[1] returns the 2nd smallest, not 2nd largest.")
 
     # ── Check 2: Mutation bug (0.25) ──────────────────────────────────────────
     mutation_keywords = ["mutate", "modif", "in-place", "in place", "original list", "side effect", "sorted("]
     if any(k in all_text for k in mutation_keywords):
         score += 0.25
-        feedback_parts.append("✓ Identified the list mutation side effect.")
+        feedback_parts.append("[+] Identified the list mutation side effect.")
     else:
-        feedback_parts.append("✗ Missed: sort() mutates the original list.")
+        feedback_parts.append("[-] Missed: sort() mutates the original list.")
 
     # ── Check 3: Fix quality (0.25) ───────────────────────────────────────────
     fix_keywords = ["numbers[-2]", "sorted(numbers)", "[-2]", "use sorted"]
     if any(k in all_fix for k in fix_keywords):
         fix_quality = 1.0
         score += 0.25
-        feedback_parts.append("✓ Suggested correct fixes.")
+        feedback_parts.append("[+] Suggested correct fixes.")
     elif issue_detected:
         fix_quality = 0.5
         score += 0.12
-        feedback_parts.append("~ Partial fix — identified the issue but fix was incomplete.")
+        feedback_parts.append("[~] Partial fix - identified the issue but fix was incomplete.")
     else:
-        feedback_parts.append("✗ No valid fixes provided.")
+        feedback_parts.append("[-] No valid fixes provided.")
 
     # ── Check 4: Severity (0.15) ──────────────────────────────────────────────
     if action.severity.lower() in ["medium", "high"]:
         severity_correct = True
         score += 0.15
-        feedback_parts.append("✓ Severity correctly rated.")
+        feedback_parts.append("[+] Severity correctly rated.")
     else:
-        feedback_parts.append(f"✗ Expected 'medium' or 'high', got '{action.severity}'.")
+        feedback_parts.append(f"[-] Expected 'medium' or 'high', got '{action.severity}'.")
 
     return Reward(
         score=round(min(score, 1.0), 4),

@@ -49,9 +49,9 @@ def grade(action: Action) -> Reward:
     if any(keyword in all_text for keyword in typo_keywords):
         issue_detected = True
         score += 0.5
-        feedback_parts.append("✓ Correctly identified the NameError / typo.")
+        feedback_parts.append("[+] Correctly identified the NameError / typo.")
     else:
-        feedback_parts.append("✗ Missed the NameError: variable 'totl' is not defined.")
+        feedback_parts.append("[-] Missed the NameError: variable 'totl' is not defined.")
 
     # ── Check 2: Did agent suggest the right fix? (0.3 points) ────────────────
     all_fix_text = " ".join(action.suggested_fixes + [action.explanation]).lower()
@@ -60,23 +60,23 @@ def grade(action: Action) -> Reward:
     if any(keyword in all_fix_text for keyword in fix_keywords):
         fix_quality = 1.0
         score += 0.3
-        feedback_parts.append("✓ Suggested the correct fix.")
+        feedback_parts.append("[+] Suggested the correct fix.")
     elif issue_detected:
-        # Partial credit — found the bug but fix was vague
+        # Partial credit - found the bug but fix was vague
         fix_quality = 0.4
         score += 0.12
-        feedback_parts.append("~ Found the bug but fix suggestion was vague.")
+        feedback_parts.append("[~] Found the bug but fix suggestion was vague.")
     else:
-        feedback_parts.append("✗ No valid fix suggested.")
+        feedback_parts.append("[-] No valid fix suggested.")
 
     # ── Check 3: Severity should be 'high' (runtime crash) (0.2 points) ──────
     if action.severity.lower() in ["high", "critical"]:
         severity_correct = True
         score += 0.2
-        feedback_parts.append("✓ Correctly rated severity as high/critical.")
+        feedback_parts.append("[+] Correctly rated severity as high/critical.")
     else:
         feedback_parts.append(
-            f"✗ Severity should be 'high' (crashes at runtime), got '{action.severity}'."
+            f"[-] Severity should be 'high' (crashes at runtime), got '{action.severity}'."
         )
 
     return Reward(
