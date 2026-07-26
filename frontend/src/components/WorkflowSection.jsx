@@ -9,38 +9,38 @@ export default function WorkflowSection({ onTryDemo }) {
   ];
 
   return (
-    <div className="space-y-20 bg-[#F5F5F7]">
+    <div className="space-y-20 bg-[#F5F5F7] dark:bg-[#0A0C0E] transition-colors duration-300">
       
       {/* 1. Pick a Challenge (Tailored Exercises) */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white dark:bg-[#0A0C0E] transition-colors duration-300">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Description */}
             <div className="lg:col-span-5 space-y-6 text-left order-first lg:order-last">
-              <span className="text-xs font-bold text-slate-400 font-mono block uppercase">:: ROBUST AGENT TRAJECTORIES</span>
-              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#111111] leading-tight">
-                Tailored Challenges for <span className="font-serif italic font-normal text-slate-700">Every Agent</span>
+              <span className="text-xs font-bold text-slate-400 dark:text-slate-500 font-mono block uppercase">:: ROBUST AGENT TRAJECTORIES</span>
+              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#111111] dark:text-[#F3F4F6] leading-tight">
+                Tailored Challenges for <span className="font-serif italic font-normal text-slate-700 dark:text-slate-300">Every Agent</span>
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed font-mono">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-mono">
                 Personalized benchmark challenges crafted to suit your codebase, audit speed, and security ambitions. Every session is designed to maximize reinforcement learning results.
               </p>
               <div>
                 <button
                   onClick={onTryDemo}
-                  className="px-8 py-3.5 bg-[#111111] text-white rounded-full text-xs font-bold font-mono inline-flex items-center space-x-1.5 transition"
+                  className="px-8 py-3.5 bg-[#111111] dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 rounded-full text-xs font-bold font-mono inline-flex items-center space-x-1.5 transition shadow"
                 >
                   <span>PICK A TASK</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
 
-              {/* Avocado Nutrition Card from video */}
-              <div className="floating-card p-4 border border-[#E5E5EA] bg-white rounded-2xl flex items-center space-x-3 w-80">
-                <div className="p-2 bg-amber-50 text-amber-500 rounded-xl border border-amber-100">
+              {/* Floating card */}
+              <div className="floating-card p-4 border border-[#E5E5EA] dark:border-[#262C36] bg-white dark:bg-[#181C22] rounded-2xl flex items-center space-x-3 w-80">
+                <div className="p-2 bg-amber-50 dark:bg-amber-950/40 text-amber-500 rounded-xl border border-amber-100 dark:border-amber-900/50">
                   <Zap className="w-5 h-5" />
                 </div>
-                <p className="text-[11px] text-slate-600 font-mono leading-relaxed">
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 font-mono leading-relaxed">
                   Fuel agent alignment with automated AST grading rules.
                 </p>
               </div>
@@ -63,14 +63,13 @@ export default function WorkflowSection({ onTryDemo }) {
                 </div>
 
                 {/* PC Screen Content */}
-                <div className="pc-screen-content p-5 space-y-4">
-                  <div className="flex items-center space-x-2 border-b border-[#E5E5EA] pb-2 text-left">
-                    <span className="text-slate-500 font-bold font-mono">&larr;</span>
-                    <h3 className="text-xs font-bold text-slate-800 font-mono">Pick a Benchmark Challenge</h3>
+                <div className="pc-screen-content p-5 space-y-4 bg-white dark:bg-[#121519]">
+                  <div className="flex items-center space-x-2 border-b border-[#E5E5EA] dark:border-[#262C36] pb-2 text-left">
+                    <span className="text-slate-500 dark:text-slate-400 font-bold font-mono">&larr;</span>
+                    <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">Pick a Benchmark Challenge</h3>
                   </div>
 
-                  <div className="bg-[#111111] rounded-2xl overflow-hidden relative h-52 flex flex-col justify-end p-4 text-white text-left">
-                    {/* Simulator placeholder image styling */}
+                  <div className="bg-[#111111] dark:bg-[#07080A] rounded-2xl overflow-hidden relative h-52 flex flex-col justify-end p-4 text-white text-left border border-transparent dark:border-[#262C36]">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
                     <img 
                       src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400"
@@ -84,7 +83,7 @@ export default function WorkflowSection({ onTryDemo }) {
                     </div>
                   </div>
 
-                  <button className="w-full bg-[#FF5500] text-white text-[10px] font-bold py-3 rounded-full font-mono">
+                  <button className="w-full bg-[#FF5500] text-white text-[10px] font-bold py-3 rounded-full font-mono shadow">
                     Continue
                   </button>
                 </div>
@@ -97,23 +96,23 @@ export default function WorkflowSection({ onTryDemo }) {
       </section>
 
       {/* 2. Top AI Agents (Model Selection) */}
-      <section className="py-12 md:py-20 bg-[#F5F5F7]">
+      <section className="py-12 md:py-20 bg-[#F5F5F7] dark:bg-[#121519] transition-colors duration-300">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Description */}
             <div className="lg:col-span-5 space-y-6 text-left">
-              <span className="text-xs font-bold text-slate-400 font-mono block uppercase">:: FRONTIER AGENTS</span>
-              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#111111] leading-tight">
-                Top AI Agents <span className="font-serif italic font-normal text-slate-700">Proven Results</span>
+              <span className="text-xs font-bold text-slate-400 dark:text-slate-500 font-mono block uppercase">:: FRONTIER AGENTS</span>
+              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#111111] dark:text-[#F3F4F6] leading-tight">
+                Top AI Agents <span className="font-serif italic font-normal text-slate-700 dark:text-slate-300">Proven Results</span>
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed font-mono">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-mono">
                 Our suite features a diverse team of frontier LLM models with billions of tokens of pre-training. Select your evaluator to begin auditing.
               </p>
               <div>
                 <button
                   onClick={onTryDemo}
-                  className="px-8 py-3.5 bg-[#111111] text-white rounded-full text-xs font-bold font-mono inline-flex items-center space-x-1.5 transition"
+                  className="px-8 py-3.5 bg-[#111111] dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 rounded-full text-xs font-bold font-mono inline-flex items-center space-x-1.5 transition shadow"
                 >
                   <span>SELECT AUDITOR</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -121,11 +120,11 @@ export default function WorkflowSection({ onTryDemo }) {
               </div>
 
               {/* Passion badge */}
-              <div className="floating-card p-4 border border-[#E5E5EA] bg-white rounded-2xl flex items-center space-x-3 w-72">
-                <div className="p-2 bg-orange-50 text-[#FF5500] rounded-xl border border-orange-100">
+              <div className="floating-card p-4 border border-[#E5E5EA] dark:border-[#262C36] bg-white dark:bg-[#181C22] rounded-2xl flex items-center space-x-3 w-72">
+                <div className="p-2 bg-orange-50 dark:bg-orange-950/40 text-[#FF5500] rounded-xl border border-orange-100 dark:border-orange-900/50">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <p className="text-[11px] text-slate-600 font-mono leading-relaxed font-sans">
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 font-mono leading-relaxed font-sans">
                   Deep Reinforcement learning drives audit success.
                 </p>
               </div>
@@ -148,27 +147,27 @@ export default function WorkflowSection({ onTryDemo }) {
                 </div>
 
                 {/* PC Screen Content */}
-                <div className="pc-screen-content p-5 space-y-3">
-                  <div className="border-b border-[#E5E5EA] pb-2 text-left">
-                    <h3 className="text-xs font-bold text-slate-800 font-mono">Choose an AI Evaluator Agent</h3>
+                <div className="pc-screen-content p-5 space-y-3 bg-[#F5F5F7] dark:bg-[#121519]">
+                  <div className="border-b border-[#E5E5EA] dark:border-[#262C36] pb-2 text-left">
+                    <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">Choose an AI Evaluator Agent</h3>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pr-1 text-left">
                     {coaches.map((c, idx) => (
-                      <div key={idx} className="bg-white p-3.5 rounded-xl border border-[#E5E5EA] flex flex-col justify-between min-h-[140px]">
+                      <div key={idx} className="bg-white dark:bg-[#181C22] p-3.5 rounded-xl border border-[#E5E5EA] dark:border-[#262C36] flex flex-col justify-between min-h-[140px]">
                         <div className="flex items-center space-x-2">
-                          <img src={c.avatar} alt={c.name} className="w-8 h-8 rounded-full bg-[#F5F5F7]" />
-                          <span className="font-bold text-slate-800 text-[10px] font-mono leading-none block">{c.name}</span>
+                          <img src={c.avatar} alt={c.name} className="w-8 h-8 rounded-full bg-[#F5F5F7] dark:bg-[#0A0C0E]" />
+                          <span className="font-bold text-slate-800 dark:text-slate-200 text-[10px] font-mono leading-none block">{c.name}</span>
                         </div>
                         <div className="font-mono text-[9px] mt-2 flex-grow">
                           <span className="text-slate-400 block">{c.title}</span>
                         </div>
-                        <span className="text-slate-500 font-bold block mt-2 text-[9px] border-t border-[#F5F5F7] pt-1.5">{c.exp}</span>
+                        <span className="text-slate-500 dark:text-slate-400 font-bold block mt-2 text-[9px] border-t border-[#F5F5F7] dark:border-[#262C36] pt-1.5">{c.exp}</span>
                       </div>
                     ))}
                   </div>
 
-                  <button className="w-full bg-[#FF5500] text-white text-[10px] font-bold py-3 rounded-full font-mono mt-1">
+                  <button className="w-full bg-[#FF5500] text-white text-[10px] font-bold py-3 rounded-full font-mono mt-1 shadow">
                     Continue
                   </button>
                 </div>
@@ -181,7 +180,7 @@ export default function WorkflowSection({ onTryDemo }) {
       </section>
 
       {/* 3. Endless Code Review Options (Bright & High-Tech Grid) */}
-      <section className="py-16 md:py-24 bg-[#F5F5F7] border-t border-b border-[#E5E5EA] relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#F5F5F7] dark:bg-[#0A0C0E] border-t border-b border-[#E5E5EA] dark:border-[#262C36] relative overflow-hidden transition-colors duration-300">
         {/* Subtle ambient light accents */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FF5500]/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -189,16 +188,16 @@ export default function WorkflowSection({ onTryDemo }) {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
           
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E5E5EA] pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E5E5EA] dark:border-[#262C36] pb-8">
             <div className="max-w-xl text-left space-y-3">
               <span className="text-xs font-bold text-[#FF5500] tracking-widest block uppercase font-mono flex items-center space-x-2">
                 <ShieldCheck className="w-4 h-4" />
                 <span>:: COMPREHENSIVE AUDIT MATRIX</span>
               </span>
-              <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase font-mono text-[#111111]">
+              <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase font-mono text-[#111111] dark:text-[#F3F4F6]">
                 Endless Code Review <span className="text-[#FF5500]">Options</span>
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-mono">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-mono">
                 Industrial-grade audit engines covering AST syntax trees, security vulnerabilities, memory leak tracing, and side-effect mutations.
               </p>
             </div>
@@ -216,150 +215,150 @@ export default function WorkflowSection({ onTryDemo }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Card 1: Security Vulnerability Audit */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 group-hover:scale-110 transition-transform">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-rose-50 border border-rose-200 text-rose-700 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-[10px] font-mono font-bold rounded-full uppercase">
                     150+ Checks
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">Security Vulnerability Audit</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Security Vulnerability Audit</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Scans for SQL injection, unsanitized inputs, and authentication bypass routines with automated exploit proofing.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">COVERAGE</span>
-                <span className="text-rose-600 font-bold">CRITICAL / HIGH</span>
+                <span className="text-rose-600 dark:text-rose-400 font-bold">CRITICAL / HIGH</span>
               </div>
             </div>
 
             {/* Card 2: AST Logic Tree Analysis */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
                     <FileCode className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-purple-50 border border-purple-200 text-purple-700 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/50 text-purple-700 dark:text-purple-300 text-[10px] font-mono font-bold rounded-full uppercase">
                     2,600+ Nodes
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">AST Logic Tree Analysis</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">AST Logic Tree Analysis</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Parses Python abstract syntax trees to detect control flow anomalies, dead branches, and unreachable logic.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">DEPTH</span>
-                <span className="text-purple-600 font-bold">FULL SYNTAX PARSE</span>
+                <span className="text-purple-600 dark:text-purple-400 font-bold">FULL SYNTAX PARSE</span>
               </div>
             </div>
 
             {/* Card 3: Memory & Resource Leak Scan */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform">
                     <Zap className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-300 text-[10px] font-mono font-bold rounded-full uppercase">
                     Zero Leak Guarantee
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">Resource Leak Tracer</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Resource Leak Tracer</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Audits file handles, unclosed network sockets, and database connections to enforce context manager usage.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">RELIABILITY</span>
-                <span className="text-amber-600 font-bold">100% RESOURCE CLEAN</span>
+                <span className="text-amber-600 dark:text-amber-400 font-bold">100% RESOURCE CLEAN</span>
               </div>
             </div>
 
             {/* Card 4: In-place Side Effect Mutation */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
                     <Activity className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-700 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 text-blue-700 dark:text-blue-300 text-[10px] font-mono font-bold rounded-full uppercase">
                     Side-effect Check
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">Mutation & Purity Guard</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Mutation & Purity Guard</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Identifies parameter mutations (e.g. `.sort()`, `.reverse()`) inside functions and recommends pure replacements.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">PARADIGM</span>
-                <span className="text-blue-600 font-bold">FUNCTIONAL PURITY</span>
+                <span className="text-blue-600 dark:text-blue-400 font-bold">FUNCTIONAL PURITY</span>
               </div>
             </div>
 
             {/* Card 5: Arbitrary Code Injection Shield */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
                     <Cpu className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold rounded-full uppercase">
                     Shell Firewall
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">Command Injection Shield</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Command Injection Shield</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Detects dangerous `eval()`, `exec()`, and `subprocess(shell=True)` calls to eliminate remote code execution vulnerabilities.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">PROTECTION</span>
-                <span className="text-emerald-600 font-bold">ZERO TRUST</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">ZERO TRUST</span>
               </div>
             </div>
 
             {/* Card 6: Error Swallowing Audit */}
-            <div className="bg-white border border-[#E5E5EA] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+            <div className="bg-white dark:bg-[#181C22] border border-[#E5E5EA] dark:border-[#262C36] hover:border-[#FF5500] rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF5500] group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center text-[#FF5500] group-hover:scale-110 transition-transform">
                     <CheckCircle className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 bg-orange-50 border border-orange-200 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
+                  <span className="px-2.5 py-1 bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/50 text-[#FF5500] text-[10px] font-mono font-bold rounded-full uppercase">
                     Traceability
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] font-mono">Exception Handler Inspector</h3>
-                  <p className="text-xs text-slate-600 font-mono mt-1.5 leading-relaxed">
+                  <h3 className="text-lg font-bold text-[#111111] dark:text-[#F3F4F6] font-mono">Exception Handler Inspector</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1.5 leading-relaxed">
                     Flags bare `except:` blocks that swallow runtime exceptions and enforces typed exception handling with log logging.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5EA] flex items-center justify-between text-[11px] font-mono">
+              <div className="pt-4 border-t border-[#E5E5EA] dark:border-[#262C36] flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">QUALITY</span>
                 <span className="text-[#FF5500] font-bold">EXPLICIT HANDLERS</span>
               </div>
@@ -370,14 +369,14 @@ export default function WorkflowSection({ onTryDemo }) {
       </section>
 
       {/* 4. Elevate Code Quality — Redesigned with purpose-built visuals */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white dark:bg-[#0A0C0E] transition-colors duration-300">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
             <span className="text-xs font-bold text-[#FF5500] uppercase tracking-wider font-mono">:: DEVELOPER TOOLS</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#111111] leading-tight">
-              Elevate Code Quality <span className="font-serif italic font-normal text-slate-700">and Security</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#111111] dark:text-[#F3F4F6] leading-tight">
+              Elevate Code Quality <span className="font-serif italic font-normal text-slate-700 dark:text-slate-300">and Security</span>
             </h2>
-            <p className="text-sm text-slate-500 font-mono leading-relaxed">
+            <p className="text-sm text-slate-500 dark:text-slate-400 font-mono leading-relaxed">
               Purpose-built infrastructure for AI-driven code reviews. From protocol integration to real-time analytics — every tool you need in one platform.
             </p>
           </div>
@@ -385,11 +384,11 @@ export default function WorkflowSection({ onTryDemo }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {/* Card 1: Model Context Protocol */}
-            <div className="bg-[#F5F5F7] rounded-3xl overflow-hidden flex flex-col justify-between min-h-[420px] border border-[#E5E5EA] group hover:shadow-xl transition-shadow">
+            <div className="bg-[#F5F5F7] dark:bg-[#181C22] rounded-3xl overflow-hidden flex flex-col justify-between min-h-[420px] border border-[#E5E5EA] dark:border-[#262C36] group hover:shadow-xl transition-shadow">
               <div className="p-6 text-left font-mono space-y-2">
                 <span className="text-[9px] uppercase text-[#FF5500] font-bold tracking-widest">PROTOCOL //</span>
-                <h4 className="text-lg font-bold text-slate-800 font-mono">Model Context Protocol</h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-800 dark:text-slate-200 font-mono">Model Context Protocol</h4>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Connect any LLM evaluator through our standardized MCP JSON-RPC interface. Supports Llama, GPT-4o, DeepSeek, and Gemini out of the box.
                 </p>
               </div>
@@ -411,15 +410,13 @@ export default function WorkflowSection({ onTryDemo }) {
             </div>
 
             {/* Card 2: Side-by-Side Diff Viewer */}
-            <div className="rounded-3xl overflow-hidden min-h-[420px] relative group">
+            <div className="rounded-3xl overflow-hidden min-h-[420px] relative group border border-transparent dark:border-[#262C36]">
               <img
                 src="/openenv_code_diff_screen.png"
                 alt="Side-by-side code diff showing buggy code in red and corrected fix in green"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-              {/* Bottom text */}
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-left">
                 <span className="text-[9px] uppercase text-[#FF5500] font-bold tracking-widest font-mono">DIFF VIEWER //</span>
                 <h4 className="text-lg font-bold text-white font-mono mt-1">Visual Patch Comparator</h4>
@@ -435,11 +432,11 @@ export default function WorkflowSection({ onTryDemo }) {
             </div>
 
             {/* Card 3: Real-time Analytics Dashboard */}
-            <div className="bg-[#F5F5F7] rounded-3xl overflow-hidden flex flex-col justify-between min-h-[420px] border border-[#E5E5EA] group hover:shadow-xl transition-shadow">
+            <div className="bg-[#F5F5F7] dark:bg-[#181C22] rounded-3xl overflow-hidden flex flex-col justify-between min-h-[420px] border border-[#E5E5EA] dark:border-[#262C36] group hover:shadow-xl transition-shadow">
               <div className="p-6 text-left font-mono space-y-2">
                 <span className="text-[9px] uppercase text-[#FF5500] font-bold tracking-widest">ANALYTICS //</span>
-                <h4 className="text-lg font-bold text-slate-800 font-mono">Real-time Stats Monitor</h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-800 dark:text-slate-200 font-mono">Real-time Stats Monitor</h4>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Track reward scores, audit latency, and model comparisons across every benchmark run. Export CSV anytime.
                 </p>
               </div>
@@ -447,28 +444,28 @@ export default function WorkflowSection({ onTryDemo }) {
               {/* Mini dashboard widget */}
               <div className="px-6 space-y-3">
                 {/* Score gauge */}
-                <div className="bg-white p-4 rounded-2xl border border-[#E5E5EA]">
+                <div className="bg-white dark:bg-[#121519] p-4 rounded-2xl border border-[#E5E5EA] dark:border-[#262C36]">
                   <div className="flex justify-between items-center text-[10px] font-mono mb-2">
-                    <span className="text-slate-500 font-bold">OVERALL REWARD</span>
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">OVERALL REWARD</span>
                     <span className="text-2xl font-extrabold text-[#FF5500]">0.98</span>
                   </div>
-                  <div className="w-full h-2 bg-[#E5E5EA] rounded-full overflow-hidden">
+                  <div className="w-full h-2 bg-[#E5E5EA] dark:bg-[#262C36] rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-[#FF5500] to-[#FF8800] rounded-full" style={{width: '98%'}}></div>
                   </div>
                 </div>
 
                 {/* Stat rows */}
-                <div className="bg-white p-3.5 rounded-2xl border border-[#E5E5EA] space-y-2.5 font-mono text-[10px] text-left">
+                <div className="bg-white dark:bg-[#121519] p-3.5 rounded-2xl border border-[#E5E5EA] dark:border-[#262C36] space-y-2.5 font-mono text-[10px] text-left">
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Audit Latency</span>
-                    <span className="font-bold text-slate-800">0.4s avg</span>
+                    <span className="text-slate-500 dark:text-slate-400">Audit Latency</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">0.4s avg</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Issues Detected</span>
-                    <span className="font-bold text-emerald-600">147 / 150</span>
+                    <span className="text-slate-500 dark:text-slate-400">Issues Detected</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">147 / 150</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Fix Accuracy</span>
+                    <span className="text-slate-500 dark:text-slate-400">Fix Accuracy</span>
                     <span className="font-bold text-[#FF5500]">98.0%</span>
                   </div>
                 </div>
@@ -493,3 +490,4 @@ export default function WorkflowSection({ onTryDemo }) {
     </div>
   );
 }
+

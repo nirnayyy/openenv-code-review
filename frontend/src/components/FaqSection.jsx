@@ -28,18 +28,18 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-12 bg-[#E6E8EA] font-mono text-[#111111]">
+    <section className="py-12 bg-[#E6E8EA] dark:bg-[#0A0C0E] font-mono text-[#111111] dark:text-[#F3F4F6] transition-colors duration-300">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border border-[#C8CCD0] bg-[#F0F2F4] p-6 mb-6">
+        <div className="border border-[#C8CCD0] dark:border-[#262C36] bg-[#F0F2F4] dark:bg-[#181C22] p-6 mb-6 rounded-2xl">
           <div className="flex items-center justify-between text-xs font-mono text-[#FF5500]">
             <span className="flex items-center">
               <span className="orange-dot mr-2"></span>
               <span>:: FREQUENTLY ASKED QUESTIONS</span>
             </span>
-            <span className="text-slate-500">DOCUMENTATION FAQ</span>
+            <span className="text-slate-500 dark:text-slate-400">DOCUMENTATION FAQ</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-[#111111] mt-2 uppercase tracking-wide">
+          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-[#111111] dark:text-[#F3F4F6] mt-2 uppercase tracking-wide">
             EVERYTHING YOU NEED TO KNOW ABOUT OPENENV
           </h2>
         </div>
@@ -50,24 +50,24 @@ export default function FaqSection() {
             return (
               <div
                 key={idx}
-                className="tech-card border border-[#C8CCD0] overflow-hidden"
+                className="tech-card border border-[#C8CCD0] dark:border-[#262C36] overflow-hidden rounded-xl"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full text-left p-5 flex items-center justify-between space-x-4 bg-[#FFFFFF] hover:bg-[#F0F2F4] transition"
+                  className="w-full text-left p-5 flex items-center justify-between space-x-4 bg-[#FFFFFF] dark:bg-[#181C22] hover:bg-[#F0F2F4] dark:hover:bg-[#20252D] transition"
                 >
-                  <span className="font-bold text-xs sm:text-sm text-[#111111]">
+                  <span className="font-bold text-xs sm:text-sm text-[#111111] dark:text-[#F3F4F6]">
                     [{idx + 1}] {faq.q}
                   </span>
-                  <div className={`p-1 border border-[#C8CCD0] text-[#FF5500] transition-transform ${
-                    isOpen ? 'rotate-180 bg-[#FF5500] text-white' : ''
+                  <div className={`p-1 border border-[#C8CCD0] dark:border-[#262C36] text-[#FF5500] transition-transform ${
+                    isOpen ? 'rotate-180 bg-[#FF5500] text-white border-[#FF5500]' : ''
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="p-5 text-xs text-slate-700 leading-relaxed border-t border-[#C8CCD0] bg-[#F0F2F4]">
+                  <div className="p-5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed border-t border-[#C8CCD0] dark:border-[#262C36] bg-[#F0F2F4] dark:bg-[#121519]">
                     {faq.a}
                   </div>
                 )}
@@ -79,3 +79,4 @@ export default function FaqSection() {
     </section>
   );
 }
+
