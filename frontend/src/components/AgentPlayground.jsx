@@ -1,8 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Play, RotateCcw, Key, Cpu, FileCode, Award, Terminal, ArrowUpRight, CheckCircle2, AlertTriangle, XCircle, Sliders, Info, Copy, Check } from 'lucide-react';
 
+const DEFAULT_TASK1_OBS = {
+  task_id: "task1_easy",
+  task_description: "Review the following Python function and identify any bugs. The function is supposed to calculate the average of a list of numbers. Find the issue, state which line it is on, and suggest the correct fix.",
+  code_snippet: `def calculate_average(numbers):
+    """Returns the average of a list of numbers."""
+    total = 0
+    for num in numbers:
+        total += num
+    average = totl / len(numbers)   # Line 6: typo 'totl' should be 'total'
+    return average
+`,
+  language: "python",
+  step: 1,
+  max_steps: 3,
+  context: "The function is called with a list like [1, 2, 3, 4, 5]. It should return 3.0 but it crashes before returning.",
+  done: false
+};
+
 export default function AgentPlayground({ onRunCompleted }) {
-  const [obs, setObs] = useState(null);
+  const [obs, setObs] = useState(DEFAULT_TASK1_OBS);
   const [loading, setLoading] = useState(false);
   const [modelName, setModelName] = useState('meta-llama/Llama-3.3-70B-Instruct');
   const [apiBaseUrl, setApiBaseUrl] = useState('https://router.huggingface.co/v1');
@@ -20,7 +38,7 @@ export default function AgentPlayground({ onRunCompleted }) {
   // Episode tracking
   const [episodeLog, setEpisodeLog] = useState([]);
   const [cumulativeReward, setCumulativeReward] = useState(0.0);
-  const [currentStepIndex, setCurrentStepIndex] = useState(0); // 0: reset, 1: task1, 2: task2, 3: task3, 4: done
+  const [currentStepIndex, setCurrentStepIndex] = useState(1); // 0: reset, 1: task1, 2: task2, 3: task3, 4: done
 
   const [copied, setCopied] = useState(false);
 
@@ -32,13 +50,18 @@ export default function AgentPlayground({ onRunCompleted }) {
     setLoading(true);
     try {
       const res = await fetch('/reset', { method: 'POST' });
-      const data = await res.json();
-      setObs(data);
+      if (res.ok) {
+        const data = await res.json();
+        setObs(data);
+      } else {
+        setObs(DEFAULT_TASK1_OBS);
+      }
       setEpisodeLog([]);
       setCumulativeReward(0.0);
       setCurrentStepIndex(1); // Task 1 active
     } catch (err) {
-      console.error(err);
+      console.error("Reset fetch error:", err);
+      setObs(DEFAULT_TASK1_OBS);
     } finally {
       setLoading(false);
     }
