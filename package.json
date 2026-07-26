@@ -4,7 +4,9 @@
   "description": "---\r title: Code Review OpenEnv\r emoji: 🔍\r colorFrom: blue\r colorTo: green\r sdk: docker\r app_port: 8000\r pinned: false\r ---",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd frontend && npm install && npm run build",
+    "start": "uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "test": "python -m pytest tests/test_api_suite.py"
   },
   "repository": {
     "type": "git",
